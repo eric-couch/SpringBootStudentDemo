@@ -9,6 +9,7 @@ function updateData(data) {
         "            <th>Name</th>\n" +
         "            <th>Course</th>\n" +
         "            <th>DELETE</th>\n" +
+        "            <th>UPDATE</th>\n" +
         "        </tr>";
     data.forEach(function (i, e) {
 
@@ -40,11 +41,19 @@ function updateData(data) {
         })
         studentDeletebutton.innerText = "delete";
         deletebutton.appendChild(studentDeletebutton);
+        let updatebutton = document.createElement("td");
+        let studentUpdatebutton = document.createElement("button");
+        studentUpdatebutton.addEventListener("click", function(){
+            window.location.replace("/UpdateStudent.html?id=" + i.id);
+        })
+        studentUpdatebutton.innerText = "update";
+        updatebutton.appendChild(studentUpdatebutton);
 
         row.appendChild(idtd);
         row.appendChild(nametd);
         row.appendChild(coursetd);
         row.appendChild(deletebutton);
+        row.appendChild(updatebutton);
         //studentAnchor.appendChild(row)
         students.appendChild(row);
 
