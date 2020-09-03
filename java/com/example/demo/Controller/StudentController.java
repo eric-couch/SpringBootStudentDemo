@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Services.StudentService;
 import com.example.demo.Entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +18,15 @@ public class StudentController {
     @RequestMapping("/")    // https://localhost:8080/students/
     public Collection<Student> getAllStudents() {
         return studentService.getAllStudents();
+    }
+
+    @RequestMapping("/{id}")    // https://localhost:8080/students/1
+    public Student getStudentById(@PathVariable("id") int id) {
+        return studentService.getStudentById(id);
+    }
+
+    @RequestMapping("/deletestudent/{id}") // https://localhost:8080/students/deletestudent/1
+    public void deleteStudent(@PathVariable("id") int id) {
+        studentService.removeStudentById(id);
     }
 }

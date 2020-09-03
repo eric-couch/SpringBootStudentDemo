@@ -20,10 +20,17 @@ public class StudentDao {
                 put(4, new Student(4, "Derek", "French Poetry"));
             }
         };
-        // int[] nums = {5,10,15,20,25};
     }
 
     public Collection<Student> getAllStudents() {
         return this.students.values();
+    }
+
+    public Student getStudentById(int id) {
+        return this.students.get(id);
+    }
+
+    public void removeStudentById(int id) {
+        this.students.remove(id);
     }
 }
